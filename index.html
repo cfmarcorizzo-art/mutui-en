@@ -572,13 +572,13 @@
 
 <!-- LANG TOGGLE -->
 <div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn active" onclick="setLang('bn')">বাং</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
   <button class="lang-btn" onclick="setLang('it')">IT</button>
-  <button class="lang-btn" onclick="setLang('bn')">বাং</button>
 </div>
 
 <!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/393924495998?text=Hi%2C%20I%20would%20like%20information%20about%20a%20mortgage%20in%20Italy" target="_blank">💬</a>
+<a class="wa-float" href="https://wa.me/393755117739?text=Hi%2C%20I%20would%20like%20information%20about%20a%20mortgage%20in%20Italy" target="_blank">💬</a>
 
 <!-- NAV -->
 <nav>
@@ -916,7 +916,7 @@
 </footer>
 
 <script>
-  let currentLang = 'en';
+  let currentLang = 'bn';
 
   function setLang(lang) {
     currentLang = lang;
@@ -954,6 +954,7 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  setLang('bn');
 
   // FORM — WhatsApp direct, zero data stored on server
   function submitForm() {
@@ -971,7 +972,7 @@
         !zonaEl.value || !immobileEl.value || !lavoroEl.value ||
         !statoCivileEl.value || !under36El.value) { alert(errMsg); return; }
 
-    var WA = '393924495998';
+    var WA = '393755117739';
 
     var msgEN = 'Hi, I found you through your website and I am interested in a mortgage consultation.%0A%0A'
       + '*Name:* ' + encodeURIComponent(nome + ' ' + cognome) + '%0A'
