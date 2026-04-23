@@ -304,7 +304,8 @@
     background: var(--white);
     padding: 40px 36px;
     transition: background 0.2s ease;
-    cursor: default;
+    cursor: pointer;
+    display: block;
   }
   .service-card:hover { background: var(--gray-100); }
 
@@ -416,15 +417,33 @@
   /* FORM */
   .form-wrap {
     padding: 80px 48px;
-    background: var(--gray-100);
+    background:
+      linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #e8f9f4 18%,
+        #f0faf6 38%,
+        #f5f5f5 65%,
+        #f5f5f5 100%
+      );
+    position: relative;
+  }
+  .form-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: 0.5;
   }
   .form-section {
     background: var(--white);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 56px 48px;
     max-width: 620px;
     margin: 0 auto;
-    border: 1px solid var(--gray-200);
+    border: 1.5px solid rgba(0,200,150,0.25);
+    box-shadow: 0 4px 32px rgba(0,200,150,0.08), 0 1px 8px rgba(0,0,0,0.06);
   }
   .form-section .section-title { font-size: 1.8rem; margin-bottom: 8px; }
   .form-section .section-sub { margin-bottom: 36px; font-size: 0.95rem; }
@@ -481,6 +500,33 @@
     margin-top: 16px;
     line-height: 1.6;
   }
+
+  /* ── GDPR CONSENT CHECKBOX ── aggiunto per art. 7 GDPR */
+  .gdpr-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+  .gdpr-consent input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .gdpr-consent label {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.6;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .gdpr-consent label a { color: var(--accent); }
 
   /* SUCCESS */
   .success-msg {
@@ -577,8 +623,7 @@
   <button class="lang-btn" onclick="setLang('it')">IT</button>
 </div>
 
-<!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/393755117739?text=Hi%2C%20I%20would%20like%20information%20about%20a%20mortgage%20in%20Italy" target="_blank">💬</a>
+<!-- WA FLOAT rimosso -->
 
 <!-- NAV -->
 <nav>
@@ -591,7 +636,7 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag" data-en="Mortgage Advisor · Italy" data-it="Consulente Mutui · Italia" data-bn="মোর্গেজ উপদেষ্টা · ইতালি">Mortgage Advisor · Italy</div>
-  <h1 data-en="Get a mortgage<br>in Italy.<br><span class='highlight'>We make it simple.</span>" data-it="Il mutuo giusto<br>in Italia.<br><span class='highlight'>Lo rendiamo semplice.</span>" data-bn="ইতালিতে<br>বাড়ি কিনুন।<br><span class='highlight'>আমরা সহজ করি।</span>">Get a mortgage<br>in Italy.<br><span class="highlight">We make it simple.</span></h1>
+  <h1 data-en="Get a mortgage<br>in Italy.<br><span class='highlight'>We make it simple.</span>" data-it="Il mutuo giusto<br>in Italia.<br><span class='highlight'>Lo rendiamo semplice.</span>" data-bn="ইতালিতে<br>বাড়ি কিনুন।<br><span class='highlight'>আমরা সহজ করি।</span>">Get a mortgage<br>in Italy.<br><span class="highlight">We make it simple.</span></h1>
   <p class="hero-sub" data-bn="ইতালিয় মোর্গেজ ব্যবস্থা জটিল। আমরা আপনার জন্য সবচেয়ে ভালো মোর্গেজ খুঁজে দিই এবং সমস্ত কাগজপত্র সামলাই — বাংলায়।" data-en="Navigating the Italian banking system is complex. We find the right mortgage for you and handle all the paperwork, and guide you — in English — from first call to final signature." data-it="Il sistema bancario italiano è complesso. Confrontiamo le offerte di più banche e ti guidiamo dalla prima chiamata alla firma finale.">Navigating the Italian banking system is complex. We find the right mortgage for you and handle all the paperwork, and guide you — in English — from first call to final signature.</p>
   <div class="hero-actions">
     <a href="#form" class="btn-primary" data-en="Talk to an advisor →" data-it="Parla con un consulente →" data-bn="উপদেষ্টার সাথে কথা বলুন →">Talk to an advisor →</a>
@@ -603,7 +648,7 @@
 <!-- TRUST BAR -->
 <div class="trust-bar fade-in">
   <div class="trust-item"><span class="icon">🇮🇹</span> <span data-en="Based in Italy" data-it="Con sede in Italia" data-bn="ইতালিতে অবস্থিত">ইতালিতে অবস্থিত</span></div>
-  <div class="trust-item"><span class="icon">⚡</span> <span data-en="Response within 24h" data-it="Risposta entro 24h" data-bn="২৪ ঘন্টার মধ্যে সাড়া">২৪ ঘন্টার মধ্যে সাড়া</span></div>
+  <div class="trust-item"><span class="icon">⚡</span> <span data-en="Response within 24h" data-it="Risposta entro 24h" data-bn="২৪ ঘন্টার মধ্যে সাড়া">২৪ ঘন্টার মধ্যে সাড়া</span></div>
   <div class="trust-item"><span class="icon">📋</span> <span data-en="Expert advice" data-it="Consulenza esperta" data-bn="বিশেষজ্ঞ পরামর্শ">বিশেষজ্ঞ পরামর্শ</span></div>
   <div class="trust-item"><span class="icon">🔒</span> <span data-en="GDPR compliant" data-it="Conforme al GDPR" data-bn="GDPR সম্মত">GDPR সম্মত</span></div>
 </div>
@@ -628,21 +673,113 @@
 <section class="services fade-in">
   <div class="section-eyebrow" data-en="What we do" data-it="I nostri servizi" data-bn="আমরা কী করি">What we do</div>
   <h2 class="section-title" data-en="Every mortgage type.<br>One clear process." data-it="Ogni tipo di mutuo.<br>Un processo chiaro." data-bn="সব ধরনের মোর্গেজ।<br>একটি সরল প্রক্রিয়া।">Every mortgage type.<br>One clear process.</h2>
-  <p class="section-sub" data-bn="প্রথম বাড়ি, রিফাইনান্সিং বা বিনিয়োগ — আমরা সবচেয়ে ভালো মোর্গেজ খুঁজে দিই এবং সব সামলাই।" data-en="Whether you're buying your first home, refinancing an existing loan, or investing — we find the right mortgage and handle everything." data-it="Prima casa, surroga o investimento — troviamo il mutuo giusto e gestiamo tutto noi.">Whether you're buying your first home, refinancing an existing loan, or investing — we find the right mortgage and handle everything.</p>
+  <p class="section-sub" data-bn="প্রথম বাড়ি, রিফাইনান্সিং বা বিনিয়োগ — আমরা সবচেয়ে ভালো মোর্গেজ খুঁজে দিই এবং সব সামলাই।" data-en="Whether you're buying your first home, refinancing an existing loan, or investing — we find the right mortgage and handle everything." data-it="Prima casa, surroga o investimento — troviamo il mutuo giusto e gestiamo tutto noi.">Whether you're buying your first home, refinancing an existing loan, or investing — we find the right mortgage and handle everything.</p>
   <div class="services-grid">
-    <div class="service-card">
+    <a class="service-card" href="#form" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="service-number">01</div>
       <div class="service-icon">🏠</div>
-      <h3 data-en="First Home" data-it="Prima Casa" data-bn="প্রথম বাড়ি">প্রথম বাড়ি</h3>
-      <p data-bn="ইতালিতে প্রথম বাড়ি কিনছেন? আমরা প্রতিটি ধাপে সাহায্য করি — অনূর্ধ্ব-36 সুবিধা সহ।" data-en="Buying your first property in Italy? We guide you through every step — including government incentives for under-36 buyers and fixed vs. variable rate comparison." data-it="Acquisti la tua prima casa in Italia? Ti guidiamo in ogni passaggio, incluse le agevolazioni under 36 e il confronto tra fisso e variabile.">Buying your first property in Italy? We guide you through every step — including government incentives for under-36 buyers and fixed vs. variable rate comparison.</p>
-    </div>
-    <div class="service-card">
+      <h3 data-en="First Home" data-it="Prima Casa" data-bn="প্রথম বাড়ি">প্রথম বাড়ি</h3>
+      <p data-bn="ইতালিতে প্রথম বাড়ি কিনছেন? আমরা প্রতিটি ধাপে সাহায্য করি — অনূর্ধ্ব-36 সুবিধা সহ।" data-en="Buying your first property in Italy? We guide you through every step — including government incentives for under-36 buyers and fixed vs. variable rate comparison." data-it="Acquisti la tua prima casa in Italia? Ti guidiamo in ogni passaggio, incluse le agevolazioni under 36 e il confronto tra fisso e variabile.">Buying your first property in Italy? We guide you through every step — including government incentives for under-36 buyers and fixed vs. variable rate comparison.</p>
+    </a>
+    <a class="service-card" href="#form" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="service-number">02</div>
       <div class="service-icon">🔄</div>
       <h3 data-en="Refinancing" data-it="Surroga" data-bn="রিফাইনান্সিং">রিফাইনান্সিং</h3>
       <p data-bn="ইতালিয় মোর্গেজ আছে? আমরা 24 ঘন্টায় যাচাই করি ব্যাংক বদলালে সাশ্রয় হবে কিনা — বিনা খরচে।" data-en="Already have an Italian mortgage? We check in 24 hours whether switching banks could save you money — with no cost and no commitment to proceed." data-it="Hai già un mutuo italiano? Verifichiamo in 24 ore se cambiare banca ti conviene — senza costi e senza obbligo di procedere.">Already have an Italian mortgage? We check in 24 hours whether switching banks could save you money — with no cost and no commitment to proceed.</p>
-    </div>
+    </a>
 </section>
+
+<!-- FORM -->
+<div class="form-wrap" id="form">
+  <div class="form-section fade-in">
+    <div class="section-eyebrow" style="text-align:center" data-en="Get in touch" data-it="Contattaci" data-bn="যোগাযোগ করুন">Get in touch</div>
+    <h2 class="section-title" data-en="Let's talk about your mortgage" data-it="Parliamo del tuo mutuo" data-bn="আপনার মোর্গেজ নিয়ে কথা বলি">Let's talk about your mortgage</h2>
+    <p class="section-sub" data-en="Leave your details and we'll call you back within 24 hours. No commitment required." data-it="Lascia i tuoi dati e ti richiamiamo entro 24 ore. Nessun impegno richiesto." data-bn="আপনার তথ্য দিন ও আমরা ২৪ ঘন্টার মধ্যে ফোন করব। কোনো বাধ্যবাধকতা নেই।">Leave your details and we'll call you back within 24 hours. No commitment required.</p>
+
+    <div id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-en="First name" data-it="Nome" data-bn="প্রথম নাম">First name</label>
+          <input type="text" id="nome" placeholder="John" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label data-en="Last name" data-it="Cognome" data-bn="শেষ নাম">Last name</label>
+          <input type="text" id="cognome" placeholder="Smith" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-en="Phone (with country code)" data-it="Telefono (con prefisso)" data-bn="ফোন (দেশের কোডসহ)">ফোন (দেশের কোডসহ)</label>
+        <input type="tel" id="telefono" placeholder="+39 333 000 0000" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label data-en="Email" data-it="Email" data-bn="ইমেইল">Email</label>
+        <input type="email" id="email" placeholder="john@example.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label data-en="1. Area you are looking in" data-it="1. Zona in cui cerchi casa" data-bn="১. কোন এলাকায় বাড়ি খুঁজছেন?">1. Area you are looking in</label>
+        <select id="zona">
+          <option value="" data-bn="প্রদেশ বেছুন..." data-en="Select province..." data-it="Seleziona provincia...">Select province...</option>
+          <option value="ag">Agrigento</option><option value="al">Alessandria</option><option value="an">Ancona</option><option value="ao">Aosta</option><option value="ar">Arezzo</option><option value="ap">Ascoli Piceno</option><option value="at">Asti</option><option value="av">Avellino</option><option value="ba">Bari</option><option value="bt">Barletta-Andria-Trani</option><option value="bl">Belluno</option><option value="bn">Benevento</option><option value="bg">Bergamo</option><option value="bi">Biella</option><option value="bo">Bologna</option><option value="bz">Bolzano</option><option value="bs">Brescia</option><option value="br">Brindisi</option><option value="ca">Cagliari</option><option value="cl">Caltanissetta</option><option value="cb">Campobasso</option><option value="ci">Carbonia-Iglesias</option><option value="ce">Caserta</option><option value="ct">Catania</option><option value="cz">Catanzaro</option><option value="ch">Chieti</option><option value="co">Como</option><option value="cs">Cosenza</option><option value="cr">Cremona</option><option value="kr">Crotone</option><option value="cn">Cuneo</option><option value="en">Enna</option><option value="fm">Fermo</option><option value="fe">Ferrara</option><option value="fi">Firenze</option><option value="fg">Foggia</option><option value="fc">Forlì-Cesena</option><option value="fr">Frosinone</option><option value="ge">Genova</option><option value="go">Gorizia</option><option value="gr">Grosseto</option><option value="im">Imperia</option><option value="is">Isernia</option><option value="sp">La Spezia</option><option value="aq">L'Aquila</option><option value="lt">Latina</option><option value="le">Lecce</option><option value="lc">Lecco</option><option value="li">Livorno</option><option value="lo">Lodi</option><option value="lu">Lucca</option><option value="mc">Macerata</option><option value="mn">Mantova</option><option value="ms">Massa-Carrara</option><option value="mt">Matera</option><option value="vs">Medio Campidano</option><option value="me">Messina</option><option value="mi">Milano</option><option value="mo">Modena</option><option value="mb">Monza e Brianza</option><option value="na">Napoli</option><option value="no">Novara</option><option value="nu">Nuoro</option><option value="og">Ogliastra</option><option value="ot">Olbia-Tempio</option><option value="or">Oristano</option><option value="pd">Padova</option><option value="pa">Palermo</option><option value="pr">Parma</option><option value="pv">Pavia</option><option value="pg">Perugia</option><option value="pu">Pesaro e Urbino</option><option value="pe">Pescara</option><option value="pc">Piacenza</option><option value="pi">Pisa</option><option value="pt">Pistoia</option><option value="pn">Pordenone</option><option value="pz">Potenza</option><option value="po">Prato</option><option value="rg">Ragusa</option><option value="ra">Ravenna</option><option value="rc">Reggio Calabria</option><option value="re">Reggio Emilia</option><option value="ri">Rieti</option><option value="rn">Rimini</option><option value="rm">Roma</option><option value="ro">Rovigo</option><option value="sa">Salerno</option><option value="ss">Sassari</option><option value="sv">Savona</option><option value="si">Siena</option><option value="sr">Siracusa</option><option value="so">Sondrio</option><option value="ta">Taranto</option><option value="te">Teramo</option><option value="tr">Terni</option><option value="to">Torino</option><option value="tp">Trapani</option><option value="tn">Trento</option><option value="tv">Treviso</option><option value="ts">Trieste</option><option value="ud">Udine</option><option value="va">Varese</option><option value="ve">Venezia</option><option value="vb">Verbano-Cusio-Ossola</option><option value="vc">Vercelli</option><option value="vr">Verona</option><option value="vv">Vibo Valentia</option><option value="vi">Vicenza</option><option value="vt">Viterbo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-en="2. Property status" data-it="2. Immobile" data-bn="২. সম্পত্তির অবস্থা">2. Property status</label>
+        <select id="immobile">
+          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
+          <option value="found" data-en="I have found a property" data-it="Ho trovato immobile">I have found a property</option>
+          <option value="searching" data-en="I am still searching" data-it="Sto cercando immobile">I am still searching</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-en="3. Employment situation" data-it="3. Situazione lavorativa" data-bn="৩. কর্মসংস্থানের অবস্থা">3. Employment situation</label>
+        <select id="lavoro">
+          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
+          <option value="dipendente-ind" data-en="Permanent employee" data-it="Lavoratore dip. a T. Indeterminato">Permanent employee</option>
+          <option value="dipendente-det" data-en="Fixed-term employee" data-it="Lavoratore dip. a T. Determinato">Fixed-term employee</option>
+          <option value="autonomo" data-en="Self-employed" data-it="Autonomo">Self-employed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-en="4. Marital status" data-it="4. Stato civile" data-bn="৪. বিবাহিত না অবিবাহিত?">4. Marital status</label>
+        <select id="stato_civile">
+          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
+          <option value="single" data-en="Single" data-it="Single">Single</option>
+          <option value="sposato" data-en="Married" data-it="Sposato/a">Married</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-en="5. Are you or your partner under 36?" data-it="5. Tu o tua moglie avete meno di 36 anni?" data-bn="৫. আপনি বা আপনার সঙ্গীর বয়স কি ৩৬ বছরের কম?">5. Are you or your partner under 36?</label>
+        <select id="under36">
+          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
+          <option value="si" data-en="Yes" data-it="Sì">Yes</option>
+          <option value="no" data-en="No" data-it="No">No</option>
+        </select>
+      </div>
+
+      <!-- ── GDPR CONSENT CHECKBOX ── aggiunto per conformità art. 7 GDPR -->
+      <div class="gdpr-consent">
+        <input type="checkbox" id="gdpr-check">
+        <label for="gdpr-check" id="gdpr-consent-label"
+          data-en="I have read the <a href='#gdpr'>Privacy &amp; GDPR notice</a> and consent to the processing of my personal data by Marco Rizzo for mortgage advisory purposes."
+          data-it="Ho letto l'<a href='#gdpr'>informativa Privacy &amp; GDPR</a> e acconsento al trattamento dei miei dati personali da parte di Marco Rizzo per finalità di consulenza mutui."
+          data-bn="আমি <a href='#gdpr'>Privacy &amp; GDPR নোটিশ</a> পড়েছি এবং মোর্গেজ পরামর্শের জন্য Marco Rizzo-কে আমার ব্যক্তিগত তথ্য প্রক্রিয়া করার সম্মতি দিচ্ছি।">
+          I have read the <a href="#gdpr">Privacy &amp; GDPR notice</a> and consent to the processing of my personal data by Marco Rizzo for mortgage advisory purposes.
+        </label>
+      </div>
+
+      <button class="form-submit" onclick="submitForm()" data-en="Send via WhatsApp →" data-it="Invia via WhatsApp →" data-bn="WhatsApp-এ পাঠান →">Send via WhatsApp →</button>
+      <p class="form-note" data-bn="🔒 আপনার তথ্য সরাসরি আমাদের WhatsApp-এ যায়। সাইটে কিছু সর্ংরক্ষিত হয় না। <a href='#gdpr'" data-en="🔒 Your details go directly to our WhatsApp. Nothing is stored on this site. <a href='#gdpr' style='color:var(--accent)'>Privacy & GDPR</a>" data-it="🔒 I tuoi dati vanno direttamente al nostro WhatsApp. Nessun dato salvato. <a href='#gdpr' style='color:var(--accent)'>Privacy & GDPR</a>">🔒 Your details go directly to our WhatsApp. Nothing is stored on this site. <a href="#gdpr" style="color:var(--accent)">Privacy &amp; GDPR</a></p>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <div class="check">💬</div>
+      <h3 data-en="WhatsApp is opening..." data-it="WhatsApp si sta aprendo..." data-bn="WhatsApp খুলছে...">WhatsApp is opening...</h3>
+      <p data-bn="আপনার বার্তা তৈরি — WhatsApp-এ Send চাপুন। ২৪ ঘন্টার মধ্যে জবাব দেব।" data-en="Your message is ready — just press Send in WhatsApp. We'll reply within 24h." data-it="Il tuo messaggio è pronto. Premi Invia su WhatsApp. Ti rispondiamo entro 24h.">Your message is ready — just press Send in WhatsApp. We'll reply within 24h.</p>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- HOW IT WORKS -->
 <div class="how fade-in" id="how">
@@ -691,200 +828,53 @@
   </div>
 </div>
 
-<!-- FORM -->
-<div class="form-wrap" id="form">
-  <div class="form-section fade-in">
-    <div class="section-eyebrow" style="text-align:center" data-en="Get in touch" data-it="Contattaci" data-bn="যোগাযোগ করুন">Get in touch</div>
-    <h2 class="section-title" data-en="Let's talk about your mortgage" data-it="Parliamo del tuo mutuo" data-bn="আপনার মোর্গেজ নিয়ে কথা বলি">Let's talk about your mortgage</h2>
-    <p class="section-sub" data-en="Leave your details and we'll call you back within 24 hours. No commitment required." data-it="Lascia i tuoi dati e ti richiamiamo entro 24 ore. Nessun impegno richiesto." data-bn="আপনার তথ্য দিন ও আমরা ২৪ ঘন্টার মধ্যে ফোন করব। কোনো বাধ্যবাধকতা নেই।">Leave your details and we'll call you back within 24 hours. No commitment required.</p>
-
-    <div id="contact-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label data-en="First name" data-it="Nome" data-bn="প্রথম নাম">First name</label>
-          <input type="text" id="nome" placeholder="John" autocomplete="given-name">
-        </div>
-        <div class="form-group">
-          <label data-en="Last name" data-it="Cognome" data-bn="শেষ নাম">Last name</label>
-          <input type="text" id="cognome" placeholder="Smith" autocomplete="family-name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label data-en="Phone (with country code)" data-it="Telefono (con prefisso)" data-bn="ফোন (দেশের কোডসহ)">ফোন (দেশের কোডসহ)</label>
-        <input type="tel" id="telefono" placeholder="+39 333 000 0000" autocomplete="tel">
-      </div>
-      <div class="form-group">
-        <label data-en="Email" data-it="Email" data-bn="ইমেইল">Email</label>
-        <input type="email" id="email" placeholder="john@example.com" autocomplete="email">
-      </div>
-      <div class="form-group">
-        <label data-en="1. Area you are looking in" data-it="1. Zona in cui cerchi casa" data-bn="১. কোন এলাকায় বাড়ি খুঁজছেন?">1. Area you are looking in</label>
-        <select id="zona">
-          <option value="" data-bn="প্রদেশ বেছুন..." data-en="Select province..." data-it="Seleziona provincia...">Select province...</option>
-          <option value="ag" data-en="Agrigento" data-it="Agrigento">Agrigento</option>
-          <option value="al" data-en="Alessandria" data-it="Alessandria">Alessandria</option>
-          <option value="an" data-en="Ancona" data-it="Ancona">Ancona</option>
-          <option value="ao" data-en="Aosta" data-it="Aosta">Aosta</option>
-          <option value="ar" data-en="Arezzo" data-it="Arezzo">Arezzo</option>
-          <option value="ap" data-en="Ascoli Piceno" data-it="Ascoli Piceno">Ascoli Piceno</option>
-          <option value="at" data-en="Asti" data-it="Asti">Asti</option>
-          <option value="av" data-en="Avellino" data-it="Avellino">Avellino</option>
-          <option value="ba" data-en="Bari" data-it="Bari">Bari</option>
-          <option value="bt" data-en="Barletta-Andria-Trani" data-it="Barletta-Andria-Trani">Barletta-Andria-Trani</option>
-          <option value="bl" data-en="Belluno" data-it="Belluno">Belluno</option>
-          <option value="bn" data-en="Benevento" data-it="Benevento">Benevento</option>
-          <option value="bg" data-en="Bergamo" data-it="Bergamo">Bergamo</option>
-          <option value="bi" data-en="Biella" data-it="Biella">Biella</option>
-          <option value="bo" data-en="Bologna" data-it="Bologna">Bologna</option>
-          <option value="bz" data-en="Bolzano" data-it="Bolzano">Bolzano</option>
-          <option value="bs" data-en="Brescia" data-it="Brescia">Brescia</option>
-          <option value="br" data-en="Brindisi" data-it="Brindisi">Brindisi</option>
-          <option value="ca" data-en="Cagliari" data-it="Cagliari">Cagliari</option>
-          <option value="cl" data-en="Caltanissetta" data-it="Caltanissetta">Caltanissetta</option>
-          <option value="cb" data-en="Campobasso" data-it="Campobasso">Campobasso</option>
-          <option value="ci" data-en="Carbonia-Iglesias" data-it="Carbonia-Iglesias">Carbonia-Iglesias</option>
-          <option value="ce" data-en="Caserta" data-it="Caserta">Caserta</option>
-          <option value="ct" data-en="Catania" data-it="Catania">Catania</option>
-          <option value="cz" data-en="Catanzaro" data-it="Catanzaro">Catanzaro</option>
-          <option value="ch" data-en="Chieti" data-it="Chieti">Chieti</option>
-          <option value="co" data-en="Como" data-it="Como">Como</option>
-          <option value="cs" data-en="Cosenza" data-it="Cosenza">Cosenza</option>
-          <option value="cr" data-en="Cremona" data-it="Cremona">Cremona</option>
-          <option value="kr" data-en="Crotone" data-it="Crotone">Crotone</option>
-          <option value="cn" data-en="Cuneo" data-it="Cuneo">Cuneo</option>
-          <option value="en" data-en="Enna" data-it="Enna">Enna</option>
-          <option value="fm" data-en="Fermo" data-it="Fermo">Fermo</option>
-          <option value="fe" data-en="Ferrara" data-it="Ferrara">Ferrara</option>
-          <option value="fi" data-en="Firenze" data-it="Firenze">Firenze</option>
-          <option value="fg" data-en="Foggia" data-it="Foggia">Foggia</option>
-          <option value="fc" data-en="Forlì-Cesena" data-it="Forlì-Cesena">Forlì-Cesena</option>
-          <option value="fr" data-en="Frosinone" data-it="Frosinone">Frosinone</option>
-          <option value="ge" data-en="Genova" data-it="Genova">Genova</option>
-          <option value="go" data-en="Gorizia" data-it="Gorizia">Gorizia</option>
-          <option value="gr" data-en="Grosseto" data-it="Grosseto">Grosseto</option>
-          <option value="im" data-en="Imperia" data-it="Imperia">Imperia</option>
-          <option value="is" data-en="Isernia" data-it="Isernia">Isernia</option>
-          <option value="sp" data-en="La Spezia" data-it="La Spezia">La Spezia</option>
-          <option value="aq" data-en="L'Aquila" data-it="L'Aquila">L'Aquila</option>
-          <option value="lt" data-en="Latina" data-it="Latina">Latina</option>
-          <option value="le" data-en="Lecce" data-it="Lecce">Lecce</option>
-          <option value="lc" data-en="Lecco" data-it="Lecco">Lecco</option>
-          <option value="li" data-en="Livorno" data-it="Livorno">Livorno</option>
-          <option value="lo" data-en="Lodi" data-it="Lodi">Lodi</option>
-          <option value="lu" data-en="Lucca" data-it="Lucca">Lucca</option>
-          <option value="mc" data-en="Macerata" data-it="Macerata">Macerata</option>
-          <option value="mn" data-en="Mantova" data-it="Mantova">Mantova</option>
-          <option value="ms" data-en="Massa-Carrara" data-it="Massa-Carrara">Massa-Carrara</option>
-          <option value="mt" data-en="Matera" data-it="Matera">Matera</option>
-          <option value="vs" data-en="Medio Campidano" data-it="Medio Campidano">Medio Campidano</option>
-          <option value="me" data-en="Messina" data-it="Messina">Messina</option>
-          <option value="mi" data-en="Milano" data-it="Milano">Milano</option>
-          <option value="mo" data-en="Modena" data-it="Modena">Modena</option>
-          <option value="mb" data-en="Monza e Brianza" data-it="Monza e Brianza">Monza e Brianza</option>
-          <option value="na" data-en="Napoli" data-it="Napoli">Napoli</option>
-          <option value="no" data-en="Novara" data-it="Novara">Novara</option>
-          <option value="nu" data-en="Nuoro" data-it="Nuoro">Nuoro</option>
-          <option value="og" data-en="Ogliastra" data-it="Ogliastra">Ogliastra</option>
-          <option value="ot" data-en="Olbia-Tempio" data-it="Olbia-Tempio">Olbia-Tempio</option>
-          <option value="or" data-en="Oristano" data-it="Oristano">Oristano</option>
-          <option value="pd" data-en="Padova" data-it="Padova">Padova</option>
-          <option value="pa" data-en="Palermo" data-it="Palermo">Palermo</option>
-          <option value="pr" data-en="Parma" data-it="Parma">Parma</option>
-          <option value="pv" data-en="Pavia" data-it="Pavia">Pavia</option>
-          <option value="pg" data-en="Perugia" data-it="Perugia">Perugia</option>
-          <option value="pu" data-en="Pesaro e Urbino" data-it="Pesaro e Urbino">Pesaro e Urbino</option>
-          <option value="pe" data-en="Pescara" data-it="Pescara">Pescara</option>
-          <option value="pc" data-en="Piacenza" data-it="Piacenza">Piacenza</option>
-          <option value="pi" data-en="Pisa" data-it="Pisa">Pisa</option>
-          <option value="pt" data-en="Pistoia" data-it="Pistoia">Pistoia</option>
-          <option value="pn" data-en="Pordenone" data-it="Pordenone">Pordenone</option>
-          <option value="pz" data-en="Potenza" data-it="Potenza">Potenza</option>
-          <option value="po" data-en="Prato" data-it="Prato">Prato</option>
-          <option value="rg" data-en="Ragusa" data-it="Ragusa">Ragusa</option>
-          <option value="ra" data-en="Ravenna" data-it="Ravenna">Ravenna</option>
-          <option value="rc" data-en="Reggio Calabria" data-it="Reggio Calabria">Reggio Calabria</option>
-          <option value="re" data-en="Reggio Emilia" data-it="Reggio Emilia">Reggio Emilia</option>
-          <option value="ri" data-en="Rieti" data-it="Rieti">Rieti</option>
-          <option value="rn" data-en="Rimini" data-it="Rimini">Rimini</option>
-          <option value="rm" data-en="Roma" data-it="Roma">Roma</option>
-          <option value="ro" data-en="Rovigo" data-it="Rovigo">Rovigo</option>
-          <option value="sa" data-en="Salerno" data-it="Salerno">Salerno</option>
-          <option value="ss" data-en="Sassari" data-it="Sassari">Sassari</option>
-          <option value="sv" data-en="Savona" data-it="Savona">Savona</option>
-          <option value="si" data-en="Siena" data-it="Siena">Siena</option>
-          <option value="sr" data-en="Siracusa" data-it="Siracusa">Siracusa</option>
-          <option value="so" data-en="Sondrio" data-it="Sondrio">Sondrio</option>
-          <option value="ta" data-en="Taranto" data-it="Taranto">Taranto</option>
-          <option value="te" data-en="Teramo" data-it="Teramo">Teramo</option>
-          <option value="tr" data-en="Terni" data-it="Terni">Terni</option>
-          <option value="to" data-en="Torino" data-it="Torino">Torino</option>
-          <option value="tp" data-en="Trapani" data-it="Trapani">Trapani</option>
-          <option value="tn" data-en="Trento" data-it="Trento">Trento</option>
-          <option value="tv" data-en="Treviso" data-it="Treviso">Treviso</option>
-          <option value="ts" data-en="Trieste" data-it="Trieste">Trieste</option>
-          <option value="ud" data-en="Udine" data-it="Udine">Udine</option>
-          <option value="va" data-en="Varese" data-it="Varese">Varese</option>
-          <option value="ve" data-en="Venezia" data-it="Venezia">Venezia</option>
-          <option value="vb" data-en="Verbano-Cusio-Ossola" data-it="Verbano-Cusio-Ossola">Verbano-Cusio-Ossola</option>
-          <option value="vc" data-en="Vercelli" data-it="Vercelli">Vercelli</option>
-          <option value="vr" data-en="Verona" data-it="Verona">Verona</option>
-          <option value="vv" data-en="Vibo Valentia" data-it="Vibo Valentia">Vibo Valentia</option>
-          <option value="vi" data-en="Vicenza" data-it="Vicenza">Vicenza</option>
-          <option value="vt" data-en="Viterbo" data-it="Viterbo">Viterbo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-en="2. Property status" data-it="2. Immobile" data-bn="২. সম্পত্তির অবস্থা">2. Property status</label>
-        <select id="immobile">
-          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
-          <option value="found" data-bn="সম্পত্তি পেয়েছি (Ho trovato immobile)" data-en="I have found a property" data-it="Ho trovato immobile">I have found a property</option>
-          <option value="searching" data-bn="এখনো খুঁজছি (Sto cercando)" data-en="I am still searching" data-it="Sto cercando immobile">I am still searching</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-en="3. Employment situation" data-it="3. Situazione lavorativa" data-bn="৩. কর্মসংস্থানের অবস্থা">3. Employment situation</label>
-        <select id="lavoro">
-          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
-          <option value="dipendente-ind" data-bn="স্থায়ী কর্মচারী (T. Indeterminato)" data-en="Permanent employee" data-it="Lavoratore dip. a T. Indeterminato">Permanent employee</option>
-          <option value="dipendente-det" data-bn="নির্দিষ্টমেয়াদী কর্মচারী (T. Determinato)" data-en="Fixed-term employee" data-it="Lavoratore dip. a T. Determinato">Fixed-term employee</option>
-          <option value="autonomo" data-bn="স্বনিযুক্ত (Autonomo)" data-en="Self-employed" data-it="Autonomo">Self-employed</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-en="4. Marital status" data-it="4. Stato civile" data-bn="৪. বিবাহিত না অবিবাহিত?">4. Marital status</label>
-        <select id="stato_civile">
-          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
-          <option value="single" data-bn="অবিবাহিত (Single)" data-en="Single" data-it="Single">Single</option>
-          <option value="sposato" data-bn="বিবাহিত (Sposato/a)" data-en="Married" data-it="Sposato/a">Married</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-en="5. Are you or your partner under 36?" data-it="5. Tu o tua moglie avete meno di 36 anni?" data-bn="৫. আপনি বা আপনার সঙ্গীর বয়স কি ৩৬ বছরের কম?">5. Are you or your partner under 36?</label>
-        <select id="under36">
-          <option value="" data-bn="নির্বাচন করুন..." data-en="Select..." data-it="Seleziona...">Select...</option>
-          <option value="si" data-bn="হ্যাঁ (Sì)" data-en="Yes" data-it="Sì">Yes</option>
-          <option value="no" data-bn="না (No)" data-en="No" data-it="No">No</option>
-        </select>
-      </div>
-      <button class="form-submit" onclick="submitForm()" data-en="Send via WhatsApp →" data-it="Invia via WhatsApp →" data-bn="WhatsApp-এ পাঠান →">Send via WhatsApp →</button>
-      <p class="form-note" data-bn="🔒 আপনার তথ্য সরাসরি আমাদের WhatsApp-এ যায়। সাইটে কিছু সর্ংরক্ষিত হয় না। <a href='#gdpr'" data-en="🔒 Your details go directly to our WhatsApp. Nothing is stored on this site. <a href='#gdpr' style='color:var(--accent)'>Privacy & GDPR</a>" data-it="🔒 I tuoi dati vanno direttamente al nostro WhatsApp. Nessun dato salvato. <a href='#gdpr' style='color:var(--accent)'>Privacy & GDPR</a>">🔒 Your details go directly to our WhatsApp. Nothing is stored on this site. <a href="#gdpr" style="color:var(--accent)">Privacy &amp; GDPR</a></p>
-    </div>
-
-    <div class="success-msg" id="success-msg">
-      <div class="check">💬</div>
-      <h3 data-en="WhatsApp is opening..." data-it="WhatsApp si sta aprendo..." data-bn="WhatsApp খুলছে...">WhatsApp is opening...</h3>
-      <p data-bn="আপনার বার্তা তৈরি — WhatsApp-এ Send চাপুন। ২৪ ঘন্টার মধ্যে জবাব দেব।" data-en="Your message is ready — just press Send in WhatsApp. We'll reply within 24h." data-it="Il tuo messaggio è pronto. Premi Invia su WhatsApp. Ti rispondiamo entro 24h.">Your message is ready — just press Send in WhatsApp. We'll reply within 24h.</p>
-    </div>
-  </div>
-</div>
-
-
+<!-- ── SEZIONE GDPR POTENZIATA ── conformità completa art. 13 GDPR -->
 <div id="gdpr" style="scroll-margin-top:80px;background:#f5f5f5;padding:40px 48px;border-top:1px solid #e8e8e8;">
   <div style="max-width:800px;margin:0 auto;">
     <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#00c896;margin-bottom:16px">Privacy &amp; Data Protection — GDPR</p>
-    <p id="gdpr-en" style="font-size:13px;color:#3a3a3a;line-height:1.9;">When you press "Send via WhatsApp", your browser opens WhatsApp directly on your device with a pre-filled message. Your personal data (name, phone number, email address and questionnaire answers) are transmitted exclusively through WhatsApp to Marco Rizzo, who acts as data controller pursuant to EU Regulation 2016/679 (GDPR). No personal data is collected, stored or processed by this website or its servers. Data will be used solely to provide mortgage advisory services. WhatsApp is subject to its own Privacy Policy (Meta Platforms). You may request access, rectification or erasure of your data at any time by writing to: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
-    <p id="gdpr-bn" style="font-size:13px;color:#3a3a3a;line-height:1.9;display:none;">যখন আপনি “WhatsApp-এ পাঠান” চাপেন, তখন আপনার ব্রাউজার সরাসরি আপনার ফোনে WhatsApp খোলে এবং একটি প্রস্তুত বার্তা পাঠায়। আপনার ব্যক্তিগত তথ্য (নাম, ফোন, ইমেইল এবং প্রশ্নালির উত্তর) শুধুমাত্র WhatsApp-এর মাধ্যমে Marco Rizzo-কে পাঠানো হয়, যিনি EU রেগুলেশন 2016/679 (GDPR) অনুসারে ডেটা নিয়ন্ত্রক। এই ওয়েবসাইট কোনো তথ্য সংরক্ষণ করে না। তথ্য কেবলমাত্র মোর্গেজ পরামর্শ দেওয়ার সুবিধার জন্য ব্যবহার হবে। আপনি যেকোনো সময় আপনার তথ্য দেখতে, সংশোধন বা মুছে দিতে অনুরোধ করতে পারেন: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
-    <p id="gdpr-it" style="font-size:13px;color:#3a3a3a;line-height:1.9;display:none;">Premendo "Invia via WhatsApp", il tuo browser apre WhatsApp direttamente sul tuo dispositivo con un messaggio precompilato. I tuoi dati personali (nome, telefono, email e risposte al questionario) vengono trasmessi esclusivamente tramite WhatsApp a Marco Rizzo, titolare del trattamento ai sensi del Regolamento UE 2016/679 (GDPR). Nessun dato personale viene raccolto, memorizzato o trattato da questo sito o dai suoi server. I dati saranno utilizzati esclusivamente per fornire servizi di consulenza mutui. WhatsApp è soggetto alla propria Informativa sulla Privacy (Meta Platforms). Puoi richiedere l'accesso, la rettifica o la cancellazione dei tuoi dati scrivendo a: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
+
+    <!-- ENGLISH -->
+    <div id="gdpr-en">
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;">When you press "Send via WhatsApp", your browser opens WhatsApp directly on your device with a pre-filled message. Your personal data (name, phone number, email address and questionnaire answers) are transmitted exclusively through WhatsApp to Marco Rizzo, who acts as <strong>data controller</strong> pursuant to EU Regulation 2016/679 (GDPR). No personal data is collected, stored or processed by this website or its servers.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Legal basis:</strong> Responding to your request is based on pre-contractual measures at your request (Art. 6(1)(b) GDPR). Any subsequent promotional communications via WhatsApp are sent only with your specific prior consent (Art. 6(1)(a) GDPR), which you may withdraw at any time without affecting the lawfulness of prior processing.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Purpose:</strong> Data will be used solely to provide mortgage advisory services.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Minors:</strong> This service is not intended for persons under 18 years of age. Please do not submit your data if you are under 18. Any data collected from minors inadvertently will be deleted promptly upon discovery.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Data provision:</strong> Providing your name, phone number and email address is necessary to process your request. Failure to provide this information makes it impossible to respond.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Retention:</strong> Your data will be retained only for the duration necessary to provide the requested advisory service and in any case no longer than 24 months from the date of last contact, unless a longer retention period is required by law.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Third-party transfers:</strong> Your data is transmitted via WhatsApp (Meta Platforms Inc.), which may process data outside the EU/EEA. Meta applies Standard Contractual Clauses as a transfer safeguard. See Meta's Privacy Policy for details.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Opt-out:</strong> You may stop communications at any time by writing to <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a> and specifying: <em>STOP PROMO</em> (promotional messages only), <em>STOP SERVICE</em> (service messages), or <em>STOP ALL</em> (all communications).</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Your rights:</strong> You may at any time request access, rectification, erasure, restriction of processing, or data portability where applicable. You also have the right to lodge a complaint with the competent supervisory authority. In Italy: <strong>Garante per la protezione dei dati personali</strong> — <a href="https://www.garanteprivacy.it" target="_blank" style="color:#00c896;">www.garanteprivacy.it</a>.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;">To exercise your rights, write to: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
+    </div>
+
+    <!-- BENGALI -->
+    <div id="gdpr-bn" style="display:none;">
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;">যখন আপনি "WhatsApp-এ পাঠান" চাপেন, তখন আপনার ব্রাউজার সরাসরি আপনার ফোনে WhatsApp খোলে এবং একটি প্রস্তুত বার্তা পাঠায়। আপনার ব্যক্তিগত তথ্য (নাম, ফোন, ইমেইল এবং প্রশ্নালির উত্তর) শুধুমাত্র WhatsApp-এর মাধ্যমে Marco Rizzo-কে পাঠানো হয়, যিনি EU রেগুলেশন 2016/679 (GDPR) অনুসারে <strong>ডেটা নিয়ন্ত্রক</strong>। এই ওয়েবসাইট কোনো তথ্য সংরক্ষণ করে না।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>আইনি ভিত্তি:</strong> আপনার অনুরোধের জবাব দেওয়া প্রি-কন্ট্র্যাকচুয়াল ব্যবস্থার উপর ভিত্তি করে (GDPR আর্ট. 6(1)(b))। যেকোনো প্রচারমূলক যোগাযোগ শুধুমাত্র আপনার পূর্বের সম্মতির ভিত্তিতে (আর্ট. 6(1)(a)) পাঠানো হবে, যা আপনি যেকোনো সময় প্রত্যাহার করতে পারেন।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>উদ্দেশ্য:</strong> তথ্য কেবলমাত্র মোর্গেজ পরামর্শ দেওয়ার জন্য ব্যবহার হবে।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>অপ্রাপ্তবয়স্ক:</strong> এই সেবা ১৮ বছরের কম বয়সীদের জন্য নয়। আপনার বয়স ১৮-এর কম হলে অনুগ্রহ করে আপনার তথ্য পাঠাবেন না। অনিচ্ছাকৃতভাবে সংগৃহীত অপ্রাপ্তবয়স্কের তথ্য আবিষ্কারের পরপরই মুছে দেওয়া হবে।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>তথ্য প্রদান:</strong> নাম, ফোন নম্বর এবং ইমেইল প্রদান আপনার অনুরোধ প্রক্রিয়া করার জন্য প্রয়োজনীয়। এই তথ্য না দিলে আমরা সাড়া দিতে পারব না।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>সংরক্ষণ মেয়াদ:</strong> আপনার তথ্য শুধুমাত্র পরামর্শ সেবা প্রদানের জন্য প্রয়োজনীয় সময়কালের জন্য সংরক্ষিত থাকবে এবং শেষ যোগাযোগের তারিখ থেকে সর্বোচ্চ ২৪ মাস।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>তৃতীয় পক্ষের ট্রান্সফার:</strong> আপনার তথ্য WhatsApp (Meta Platforms Inc.)-এর মাধ্যমে প্রেরিত হয়, যা EU/EEA-এর বাইরে ডেটা প্রক্রিয়া করতে পারে। Meta স্ট্যান্ডার্ড কন্ট্র্যাকচুয়াল ক্লজ প্রয়োগ করে।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>অপ্ট-আউট:</strong> আপনি যেকোনো সময় <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a>-এ লিখে যোগাযোগ বন্ধ করতে পারেন: <em>STOP PROMO</em> (শুধু প্রচারমূলক), <em>STOP SERVICE</em> (পরিষেবা বার্তা), বা <em>STOP ALL</em> (সব যোগাযোগ)।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>আপনার অধিকার:</strong> আপনি যেকোনো সময় আপনার তথ্য অ্যাক্সেস, সংশোধন, মুছে দেওয়া, প্রক্রিয়াকরণ সীমিত করা বা সম্মতি প্রত্যাহার করতে পারেন। আপনি ইতালির তত্ত্বাবধায়ক কর্তৃপক্ষের কাছে অভিযোগ করতে পারেন: <strong>Garante per la protezione dei dati personali</strong> — <a href="https://www.garanteprivacy.it" target="_blank" style="color:#00c896;">www.garanteprivacy.it</a>।</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;">অধিকার প্রয়োগের জন্য লিখুন: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
+    </div>
+
+    <!-- ITALIANO -->
+    <div id="gdpr-it" style="display:none;">
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;">Premendo "Invia via WhatsApp", il tuo browser apre WhatsApp direttamente sul tuo dispositivo con un messaggio precompilato. I tuoi dati personali (nome, telefono, email e risposte al questionario) vengono trasmessi esclusivamente tramite WhatsApp a Marco Rizzo, <strong>titolare del trattamento</strong> ai sensi del Regolamento UE 2016/679 (GDPR). Nessun dato personale viene raccolto, memorizzato o trattato da questo sito o dai suoi server.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Base giuridica:</strong> La gestione della tua richiesta si fonda sull'esecuzione di misure precontrattuali su richiesta dell'interessato (Art. 6(1)(b) GDPR). Eventuali comunicazioni promozionali via WhatsApp sono inviate solo previo tuo consenso specifico e separato (Art. 6(1)(a) GDPR), revocabile in qualsiasi momento senza pregiudizio per la liceità del trattamento precedente.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Finalità:</strong> I dati saranno utilizzati esclusivamente per fornire servizi di consulenza mutui.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Minori:</strong> Il servizio non è destinato a persone di età inferiore ai 18 anni. Ti chiediamo di non inviare i tuoi dati se sei minorenne. Eventuali dati di minori raccolti involontariamente saranno cancellati tempestivamente.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Conferimento dei dati:</strong> Il conferimento di nome, numero di telefono ed email è necessario per gestire la tua richiesta. Il mancato conferimento comporta l'impossibilità di fornire riscontro.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Conservazione:</strong> I dati saranno conservati per il tempo strettamente necessario all'erogazione del servizio di consulenza e comunque non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Trasferimento a terzi:</strong> I dati vengono trasmessi tramite WhatsApp (Meta Platforms Inc.), che può trattarli al di fuori dell'UE/SEE. Meta applica le Clausole Contrattuali Standard come garanzia. Si rimanda alla Privacy Policy di Meta per i dettagli.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Opt-out:</strong> Puoi interrompere le comunicazioni in qualsiasi momento scrivendo a <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a> indicando: <em>STOP PROMO</em> (solo messaggi promozionali), <em>STOP SERVIZI</em> (messaggi di servizio), oppure <em>STOP TUTTO</em> (tutte le comunicazioni).</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;margin-bottom:12px;"><strong>Diritti dell'interessato:</strong> Puoi esercitare in qualsiasi momento i diritti di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità ove applicabile, e revoca del consenso, senza pregiudizio per la liceità del trattamento precedente. Hai inoltre il diritto di proporre reclamo all'autorità di controllo competente: <strong>Garante per la protezione dei dati personali</strong> — <a href="https://www.garanteprivacy.it" target="_blank" style="color:#00c896;">www.garanteprivacy.it</a>.</p>
+      <p style="font-size:13px;color:#3a3a3a;line-height:1.9;">Per esercitare i tuoi diritti scrivi a: <a href="mailto:cfmarcorizzo@gmail.com" style="color:#00c896;">cfmarcorizzo@gmail.com</a></p>
+    </div>
+
   </div>
 </div>
 
@@ -934,6 +924,13 @@
       if (!text) text = opt.getAttribute('data-en');
       if (text) opt.textContent = text;
     });
+    // Aggiorna testo checkbox consenso GDPR nella lingua corrente
+    var consentLabel = document.getElementById('gdpr-consent-label');
+    if (consentLabel) {
+      var cText = consentLabel.getAttribute('data-' + lang);
+      if (!cText) cText = consentLabel.getAttribute('data-en');
+      if (cText) consentLabel.innerHTML = cText;
+    }
     var en = document.getElementById('gdpr-en');
     var it = document.getElementById('gdpr-it');
     var bn = document.getElementById('gdpr-bn');
@@ -958,6 +955,17 @@
 
   // FORM — WhatsApp direct, zero data stored on server
   function submitForm() {
+    // ── Verifica consenso GDPR — obbligatorio per art. 7 GDPR ──
+    var consentCheck = document.getElementById('gdpr-check');
+    if (!consentCheck || !consentCheck.checked) {
+      var consentMsg = currentLang === 'en'
+        ? 'Please accept the Privacy & GDPR notice to continue.'
+        : (currentLang === 'it'
+          ? "Accetta l'informativa Privacy & GDPR per procedere."
+          : 'অনুগ্রহ করে Privacy & GDPR নোটিশে সম্মতি দিন।');
+      alert(consentMsg);
+      return;
+    }
     var nome = document.getElementById('nome').value.trim();
     var cognome = document.getElementById('cognome').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
